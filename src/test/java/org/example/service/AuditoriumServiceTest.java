@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AuditoriumServiceTest {
     AuditoriumService auditoriumService;
@@ -53,6 +53,13 @@ class AuditoriumServiceTest {
         int bookedSeats = auditoriumService.bookedSeats(5).size();
 
         assertEquals(3, bookedSeats);
+    }
+
+    @Test
+    void shouldCheckIfEnoughPlaceForBookingAllSeats(){
+        assertFalse(auditoriumService.isEnoughSeatsForBooking(16));
+        assertTrue(auditoriumService.isEnoughSeatsForBooking(15));
+        assertTrue(auditoriumService.isEnoughSeatsForBooking(1));
     }
 
 }
