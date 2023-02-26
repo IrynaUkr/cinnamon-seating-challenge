@@ -39,7 +39,9 @@ row B-> B1  B2  B3  B4  B5
 
 row C-> C1  C2  C3  C4  C5
 
-2. booking only one seat.
+2. booking  seats.
 
 To book Seat we need to iterate from the beginning seats A1 to the end C5 and find seat which is not allocated.
 Mark it as allocated and accept booking for customer.
+
+The  method book Seat returns List  of booked seats

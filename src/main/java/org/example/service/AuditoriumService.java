@@ -22,21 +22,22 @@ public class AuditoriumService {
         return seats;
     }
 
-    public void bookSeat() {
-        ArrayList<Seat> seats = auditorium.getSeats();
-        int amountSeatsToBook = 1;
+    public List<Seat> bookedSeats(int amountSeatsToBook) {
+        List<Seat> seats = auditorium.getSeats();
+        List<Seat> bookedSeats = new ArrayList<>();
+
         int i = 0;
         while (amountSeatsToBook > 0 && i < 15) {
 
             Seat currentSeat = seats.get(i);
             if (!currentSeat.getIsAllocated()) {
                 currentSeat.setIsAllocated(true);
-                System.out.println(currentSeat + "was booked");
+                bookedSeats.add(currentSeat);
                 amountSeatsToBook--;
             }
             i++;
         }
-
+        return bookedSeats;
     }
 
 }
