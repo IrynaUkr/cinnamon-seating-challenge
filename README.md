@@ -52,6 +52,7 @@ What let as book seats according to Business Requirements order.
 
 The  method book Seat returns List  of booked seats, and in UI we can get all information of booked seats.
 
+If the number of available seats is less than requested, the reservation cannot be completed, a Not Enough Seats Exception will be thrown.
 The App class run the program, where customer's request of seats generated using the Math.random.
 
 If you run the program, you can see the sequence of requests, booked seats  and current amount available seats.
