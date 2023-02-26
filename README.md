@@ -41,7 +41,13 @@ row C-> C1  C2  C3  C4  C5
 
 2. booking  seats.
 
-To book Seat we need to iterate from the beginning seats A1 to the end C5 and find seat which is not allocated.
-Mark it as allocated and accept booking for customer.
+**To book Seat we need**
+* iterate from the beginning seats A1 to the end C5
+* find seat which is not allocated.
+* mark it as allocated and accept booking for customer.
 
-The  method book Seat returns List  of booked seats
+As for storing seats in Auditorium was used ArrayList data structure, we use it advantages,
+sequential storing data in adding order.
+What let as book seats according to Business Requirements order.
+
+The  method book Seat returns List  of booked seats, and in UI we can get all information of booked seats.
