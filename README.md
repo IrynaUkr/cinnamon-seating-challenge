@@ -5,9 +5,9 @@
 Program allocates seats to customers purchasing tickets for a movie theatre.
 Cinnamon Cinemas provided some criteria for how the program should be built.
 
-. The Cinnamon Cinemas Movie Theatre has 15 seats, arranged in 3 rows of 5
-  Rows are assigned a letter from A to C
-  Seats are assigned a number from 1 to 5
+*   The Cinnamon Cinemas Movie Theatre has 15 seats, arranged in 3 rows of 5
+*   Rows are assigned a letter from A to C
+*   Seats are assigned a number from 1 to 5
 
 ### User Story
 Theatre Manager allocates seats to customers and  can control reserved seating for the theatre
@@ -51,3 +51,7 @@ sequential storing data in adding order.
 What let as book seats according to Business Requirements order.
 
 The  method book Seat returns List  of booked seats, and in UI we can get all information of booked seats.
+
+The App class run the program, where customer's request of seats generated using the Math.random.
+
+If you run the program, you can see the sequence of requests, booked seats  and current amount available seats.
