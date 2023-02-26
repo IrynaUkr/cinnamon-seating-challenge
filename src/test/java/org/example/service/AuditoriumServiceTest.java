@@ -2,28 +2,30 @@ package org.example.service;
 
 import org.example.model.Auditorium;
 import org.example.model.Seat;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AuditoriumServiceTest {
-    AuditoriumService auditoriumService ;
+    AuditoriumService auditoriumService;
 
     @BeforeEach
-    void  setUp(){
+    void setUp() {
         Auditorium auditorium = new Auditorium();
         auditoriumService = new AuditoriumService(auditorium);
     }
 
     @Test
-    void createAuditoriumSeats() {
+    void shouldCreateAuditoriumSeats() {
         List<Seat> auditoriumSeats = auditoriumService.createAuditoriumSeats();
 
-        assertNotNull(auditoriumSeats);
+        assertEquals(15, auditoriumSeats.size());
+        assertEquals('A', auditoriumSeats.get(0).getRow());
+        assertEquals('B', auditoriumSeats.get(5).getRow());
+        assertEquals('C', auditoriumSeats.get(10).getRow());
     }
 
 }

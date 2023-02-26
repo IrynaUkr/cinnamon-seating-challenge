@@ -24,3 +24,12 @@ All seats are available for sale when the program starts
 The program continues to allocate a random number of seats until it finds there are not enough seats
 left to complete the request Once there are not enough seats available to be allocated then the program can halt
 
+Solution description
+1. creating the auditorium seats.
+According to the requirements seat need to be allocated from seat A1 and filling the auditorium from  left to right, front to back.
+So, the scheme is:
+
+        S C R E A N E
+row A-> A1 A2 A3 A4 A5
+row B-> B1 B2 B3 B4 B5
+row C-> C1 C2 C3 C4 C5
