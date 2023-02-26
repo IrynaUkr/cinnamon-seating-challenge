@@ -11,10 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AuditoriumServiceTest {
     AuditoriumService auditoriumService;
+    Auditorium auditorium;
 
     @BeforeEach
     void setUp() {
-        Auditorium auditorium = new Auditorium();
+        auditorium = new Auditorium();
         auditoriumService = new AuditoriumService(auditorium);
     }
 
@@ -26,6 +27,18 @@ class AuditoriumServiceTest {
         assertEquals('A', auditoriumSeats.get(0).getRow());
         assertEquals('B', auditoriumSeats.get(5).getRow());
         assertEquals('C', auditoriumSeats.get(10).getRow());
+    }
+
+    @Test
+    void shouldBookAvailableSeat(){
+        auditoriumService.createAuditoriumSeats();
+        auditoriumService.bookSeat();
+
+        long allocatedSeats = auditorium.getSeats().stream().filter(Seat::getIsAllocated).count();
+
+        assertEquals(1, allocatedSeats);
+
+
     }
 
 }
