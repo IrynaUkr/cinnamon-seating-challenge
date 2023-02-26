@@ -1,6 +1,7 @@
 package org.example.service;
 
 import lombok.AllArgsConstructor;
+import org.example.exception.NotEnoughSeatsException;
 import org.example.model.Auditorium;
 import org.example.model.Seat;
 
@@ -16,7 +17,6 @@ public class AuditoriumService {
         for (char row = 'A'; row < 'D'; row++) {
             for (int seatNumber = 1; seatNumber < 6; seatNumber++) {
                 seats.add(new Seat(row, seatNumber, false));
-
             }
         }
         auditorium.setSeats(seats);
@@ -28,8 +28,8 @@ public class AuditoriumService {
         List<Seat> seats = auditorium.getSeats();
         List<Seat> bookedSeats = new ArrayList<>();
 
-        if (!isEnoughSeatsForBooking(amountSeatsToBook)){
-            throw new IllegalArgumentException();
+        if (!isEnoughSeatsForBooking(amountSeatsToBook)) {
+            throw new NotEnoughSeatsException("Sorry, we do not have amount Seats To Book " + amountSeatsToBook);
         }
 
         int i = 0;
@@ -40,15 +40,19 @@ public class AuditoriumService {
                 currentSeat.setIsAllocated(true);
                 bookedSeats.add(currentSeat);
                 amountSeatsToBook--;
-                auditorium.setAvailableSeats(auditorium.getAvailableSeats()-1);
+                decrementAvailableSeats();
             }
             i++;
         }
         return bookedSeats;
     }
 
-    public boolean isEnoughSeatsForBooking(int amountSeatsToBook){
-       return ( auditorium.getAvailableSeats()- amountSeatsToBook) >=0;
+    private void decrementAvailableSeats() {
+        auditorium.setAvailableSeats(auditorium.getAvailableSeats() - 1);
+    }
+
+    public boolean isEnoughSeatsForBooking(int amountSeatsToBook) {
+        return (auditorium.getAvailableSeats() - amountSeatsToBook) >= 0;
     }
 
 }

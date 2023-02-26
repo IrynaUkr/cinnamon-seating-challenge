@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.exception.NotEnoughSeatsException;
 import org.example.model.Auditorium;
 import org.example.model.Seat;
 import org.junit.jupiter.api.BeforeEach;
@@ -60,6 +61,11 @@ class AuditoriumServiceTest {
         assertFalse(auditoriumService.isEnoughSeatsForBooking(16));
         assertTrue(auditoriumService.isEnoughSeatsForBooking(15));
         assertTrue(auditoriumService.isEnoughSeatsForBooking(1));
+    }
+
+    @Test
+    void throwExceptionIfDirectionNotValid() {
+        assertThrows(NotEnoughSeatsException.class, () -> auditoriumService.bookedSeats(89));
     }
 
 }
